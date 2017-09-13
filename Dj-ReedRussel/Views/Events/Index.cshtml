@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Menu_Footer.cshtml";
+}
+
+<section>
+    <div class="back">
+        <div class="page-name">
+            <h3> Lorem ipsum dolor sit amet.</h3>
+            <h2 class="title">events</h2>
+        </div>
+    </div>
+</section>
+<!--page ends-->
+<!--page content starts-->
+<section class="event">
+    <div class="container">
+        <div class="row">
+            <div class="albums counters">
+                <div class="albums-item">
+                    <a href="@Url.Action("Index","EventItem")">
+                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
+                        <div class="about">
+                            <p>ReedRussell</p>
+                            <p>ReedRussell</p>
+                            <p time='Mar 21, 2018 00:00:00'>.</p>
+                            <p>ReedRussell</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="albums-item">
+                    <a href="@Url.Action("Index","EventItem")">
+                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
+                        <div class="about">
+                            <p>ReedRussell</p>
+                            <p>ReedRussell</p>
+                            <p time='Mar 21, 2019 00:00:00'>.</p>
+                            <p>ReedRussell</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="albums-item">
+                    <a href="@Url.Action("Index","EventItem")">
+                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
+                        <div class="about">
+                            <p>ReedRussell</p>
+                            <p>ReedRussell</p>
+                            <p time='Mar 21, 2012 00:00:00'>.</p>
+                            <p>ReedRussell</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="albums-item">
+                    <a href="@Url.Action("Index","EventItem")">
+                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
+                        <div class="about">
+                            <p>ReedRussell</p>
+                            <p>ReedRussell</p>
+                            <p time='Mar 21, 2012 00:00:00'>.</p>
+                            <p>ReedRussell</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--page content ends-->
+<!--festival starts-->
+<section class="festival list">
+    <p>
+        MUSIC
+        <a href="https://www.youtube.com/embed/feA64wXhbjo?list=RDGMEMYH9CUrFO7CfLJpaD7UR85wVMAd6SxduZfis" class="gallery1">
+            <i class="fa fa-play-circle"></i>
+        </a> festival
+    </p>
+    <div class="modal">
+        <div class="modal_inner">
+            <img class="close" src="~/Public/img/close.png" width="32">
+            <img class="left" style="display: none" src="~/Public/img/arrow-left.png" width="32">
+            <img class="right" style="display: none" src="~/Public/img/arrow-right.png" width="32">
+        </div>
+    </div>
+</section>
+<!--festival ends-->
+
+

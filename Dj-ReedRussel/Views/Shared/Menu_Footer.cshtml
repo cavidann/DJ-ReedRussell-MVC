@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Radio Show</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/Public/css/common.css">
+
+</head>
+
+<body>
+    <style>
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: transparent
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: rgba(255, 0, 122, 0.8);
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+
+            ::-webkit-scrollbar-thumb:window-inactive {
+                background: rgba(255, 0, 122, 0.4);
+            }
+    </style>
+    <!--menu starts-->
+    <section class="menu-position">
+        <div class="container">
+            <div class="row">
+                <div class="menu">
+                    <a href="@Url.Action("Index", "Myhome")">
+                        <img src="~/Public/img/logo.png" alt="img" title="logo">
+                    </a>
+                    <div class="menu-items ">
+                        <a href="@Url.Action("Index", "Myhome")"><button>Home</button></a>
+                        <a href="@Url.Action("Index", "Events")"><button>Events</button></a>
+                        <a href="@Url.Action("Index", "Albums")"><button>Albums</button></a>
+                        <div class="dropdown">
+                            <a><button class="dropbtn">Videos</button></a>
+                            <div class="dropdown-content">
+                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Singles", "Index", "Videos")</button>
+                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Remixes", "Index", "Videos")</button>
+                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Vlogs", "Index", "Videos")</button>
+                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Lesson", "Index", "Videos")</button>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a><button class="dropbtn">Musics</button></a>
+                            <div class="dropdown-content">
+                                <button>@Html.ActionLink("Singles", "Index", "Musics")</button>
+                                <button>@Html.ActionLink("Remixes", "Index", "Musics")</button>
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Index", "RadioShow")"><button>Radio Show</button></a>
+                        <a href="@Url.Action("Index", "Contact")"><button>Contact</button></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div id="sidebar">
+            <ul>
+                <li><a href="@Url.Action("Index", "Myhome")"><img src="~/Public/img/logo.png"></a></li>
+                <li><b>@Html.ActionLink("Home", "Index", "MyHome")</b></li>
+                <li><b>@Html.ActionLink("Events", "Index", "Events")</b></li>
+                <li><b>@Html.ActionLink("Albums", "Index", "Albums")</b></li>
+                <li class="dropdown_galery">
+                    <b>
+                        VIDEOS<i class="fa fa-angle-down  pull-right" aria-hidden="true"></i>
+                        <ul class="galery">
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Singles", "Index", "Videos")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Remixes", "Index", "Videos")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Vlogs", "Index", "Videos")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Lessons", "Index", "Videos")</li>
+                        </ul>
+                    </b>
+                <li class="dropdown_blog">
+                    <b>
+                        MUSICS<i class="fa fa-angle-down  pull-right" aria-hidden="true"></i>
+
+                        <ul class="blog">
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Singles", "Index", "Musics")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Remixes", "Index", "Musics")</li>
+                        </ul>
+                    </b>
+                <li><b>@Html.ActionLink("Radio Show", "Index", "RadioShow")</b></li>
+                <li><b>@Html.ActionLink("Contact", "Index", "Contact")</b></li>
+
+            </ul>
+
+            <div id="sidebar-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+    </section>
+    <!--menu ends-->
+    <div class="clearfix"></div>
+    <div class="daire">
+        <div class="col-md-12">
+            <p class="col-md-2"><i class="fa fa-angle-up" aria-hidden="true"></i></p>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!--page starts-->
+    @RenderBody()
+    <!--page ends-->
+
+
+    <!--footer start-->
+    <section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="footer col-md-12 col-sm-12 col-xs-12">
+                        <p class="col-md-6 col-sm-6 col-xs-12">&copyCAVIDAN, ALL RIGHTS RESERVED.</p>
+                        <div class="logos col-md-6 col-sm-6 col-xs-12">
+                            <ul>
+                                <li><a href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </section>
+    <!--footer ends-->
+    <script src="~/Public/js/musiclist.js"></script>
+
+    <script src="~/Public/js/modal.js"></script>
+    <script src="~/Public/js/modal_init.js"></script>
+    <script src="~/Public/js/countdown.js"></script>
+    <script src="~/Public/js/player.js"></script>
+
+    <script src="~/Public/js/instafeed.min.js"></script>
+    <script src="~/Public/js/jquery.min.js"></script>
+    <script src="~/Public/js/magnific.min.js"></script>
+    <script src="~/Public/js/custom.js"></script>
+</body>          
+
+</html>
