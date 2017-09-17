@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -52,6 +58,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -141,6 +149,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\albumOrRadioshowCrud\album_or_radioshowController.cs" />
+    <Compile Include="Areas\admin\Controllers\contactCrud\contactsController.cs" />
+    <Compile Include="Areas\admin\Controllers\eventCrud\myeventsController.cs" />
+    <Compile Include="Areas\admin\Controllers\musicCrud\musicsController.cs" />
+    <Compile Include="Areas\admin\Controllers\musicTypeCrud\music_typesController.cs" />
+    <Compile Include="Areas\admin\Controllers\pageNameCrud\page_nameController.cs" />
+    <Compile Include="Areas\admin\Controllers\tracklistCrud\tracklistsController.cs" />
+    <Compile Include="Areas\admin\Controllers\videoTypeCrud\video_typesController.cs" />
+    <Compile Include="Areas\admin\Controllers\videoCrud\videosController.cs" />
     <Compile Include="Controllers\AlbumItem\AlbumItemController.cs" />
     <Compile Include="Controllers\Albums\AlbumsController.cs" />
     <Compile Include="Controllers\Contact\ContactController.cs" />
@@ -154,6 +172,48 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\album_or_radioshow.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contact.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\music.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\music_types.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\myevent.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\page_name.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tracklist.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\video.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\video_types.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,11 +223,74 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\admin\Views\web.config" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\admin\Views\contacts\Create.cshtml" />
+    <Content Include="Areas\admin\Views\contacts\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\contacts\Details.cshtml" />
+    <Content Include="Areas\admin\Views\contacts\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\contacts\Index.cshtml" />
+    <Content Include="Areas\admin\Views\videos\Create.cshtml" />
+    <Content Include="Areas\admin\Views\videos\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\videos\Details.cshtml" />
+    <Content Include="Areas\admin\Views\videos\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\videos\Index.cshtml" />
+    <Content Include="Areas\admin\Views\video_types\Create.cshtml" />
+    <Content Include="Areas\admin\Views\video_types\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\video_types\Details.cshtml" />
+    <Content Include="Areas\admin\Views\video_types\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\video_types\Index.cshtml" />
+    <Content Include="Areas\admin\Views\musics\Create.cshtml" />
+    <Content Include="Areas\admin\Views\musics\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\musics\Details.cshtml" />
+    <Content Include="Areas\admin\Views\musics\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\musics\Index.cshtml" />
+    <Content Include="Areas\admin\Views\music_types\Create.cshtml" />
+    <Content Include="Areas\admin\Views\music_types\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\music_types\Details.cshtml" />
+    <Content Include="Areas\admin\Views\music_types\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\music_types\Index.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Create.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Details.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Index.cshtml" />
+    <Content Include="Areas\admin\Views\page_name\Create.cshtml" />
+    <Content Include="Areas\admin\Views\page_name\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\page_name\Details.cshtml" />
+    <Content Include="Areas\admin\Views\page_name\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\page_name\Index.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Create.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Details.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Index.cshtml" />
+    <Content Include="Areas\admin\Views\myevents\Create.cshtml" />
+    <Content Include="Areas\admin\Views\myevents\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\myevents\Details.cshtml" />
+    <Content Include="Areas\admin\Views\myevents\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\myevents\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -200,10 +323,12 @@
     <Content Include="Views\RadioShow\Index.cshtml" />
     <Content Include="Views\Musics\Index.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\admin\Models\" />
+    <Folder Include="Areas\admin\Views\Shared\" />
     <Folder Include="Public\" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +345,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

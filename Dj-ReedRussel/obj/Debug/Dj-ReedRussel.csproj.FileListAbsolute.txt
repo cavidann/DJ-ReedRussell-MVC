@@ -62,6 +62,10 @@ C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\Microsoft.AI.Dependency
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\Microsoft.AI.Web.xml
-C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\obj\Debug\Dj-ReedRussel.csprojResolveAssemblyReference.cache
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\obj\Debug\Dj-ReedRussel.dll
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\obj\Debug\Dj-ReedRussel.pdb
+C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.dll
+C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.SqlServer.dll
+C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.xml
+C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.SqlServer.xml
+C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\obj\Debug\Dj-ReedRussel.csprojResolveAssemblyReference.cache

@@ -1,0 +1,59 @@
+﻿@model Dj_ReedRussel.Models.myevent
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>myevent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.event_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventdatetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventdatetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_cover)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_cover)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_bk_photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_bk_photo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

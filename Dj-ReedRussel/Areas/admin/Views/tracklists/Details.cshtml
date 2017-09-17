@@ -1,0 +1,43 @@
+﻿@model Dj_ReedRussel.Models.tracklist
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tracklist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.music_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.music_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.music_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.music_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.music_src)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.music_src)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

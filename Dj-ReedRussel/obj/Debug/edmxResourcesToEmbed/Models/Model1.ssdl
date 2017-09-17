@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dj_reedrussellModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="album_or_radioshow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cover" Type="nvarchar(max)" />
+    <Property Name="header" Type="nvarchar" MaxLength="50" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="info" Type="nvarchar(max)" />
+    <Property Name="tracklist_id" Type="int" />
+    <Property Name="page_name_id" Type="int" />
+    <Property Name="album_type" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="site_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="profile" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="music_types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="musics">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="music_cover" Type="nvarchar(max)" />
+    <Property Name="music_info" Type="nvarchar(max)" />
+    <Property Name="music_types_id" Type="int" />
+  </EntityType>
+  <EntityType Name="myevent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="event_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="event_info" Type="nvarchar(max)" />
+    <Property Name="eventdatetime" Type="nvarchar" MaxLength="50" />
+    <Property Name="event_cover" Type="nvarchar(max)" />
+    <Property Name="event_bk_photo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="page_name">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tracklist">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="music_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="music_time" Type="nvarchar" MaxLength="5" />
+    <Property Name="music_src" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="video_types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="videos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cover" Type="nvarchar(max)" />
+    <Property Name="link" Type="nvarchar(max)" />
+    <Property Name="video_types_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_album_or_radioshow_album_or_radioshow1">
+    <End Role="tracklist" Type="Self.tracklist" Multiplicity="0..1" />
+    <End Role="album_or_radioshow" Type="Self.album_or_radioshow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tracklist">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="album_or_radioshow">
+        <PropertyRef Name="tracklist_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_album_or_radioshow_page_name">
+    <End Role="page_name" Type="Self.page_name" Multiplicity="0..1" />
+    <End Role="album_or_radioshow" Type="Self.album_or_radioshow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="page_name">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="album_or_radioshow">
+        <PropertyRef Name="page_name_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_musics_music_types">
+    <End Role="music_types" Type="Self.music_types" Multiplicity="0..1" />
+    <End Role="musics" Type="Self.musics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="music_types">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="musics">
+        <PropertyRef Name="music_types_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_videos_video_types">
+    <End Role="video_types" Type="Self.video_types" Multiplicity="0..1" />
+    <End Role="videos" Type="Self.videos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="video_types">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="videos">
+        <PropertyRef Name="video_types_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dj_reedrussellModelStoreContainer">
+    <EntitySet Name="album_or_radioshow" EntityType="Self.album_or_radioshow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="music_types" EntityType="Self.music_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="musics" EntityType="Self.musics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="myevent" EntityType="Self.myevent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="page_name" EntityType="Self.page_name" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tracklist" EntityType="Self.tracklist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="video_types" EntityType="Self.video_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="videos" EntityType="Self.videos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_album_or_radioshow_album_or_radioshow1" Association="Self.FK_album_or_radioshow_album_or_radioshow1">
+      <End Role="tracklist" EntitySet="tracklist" />
+      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_album_or_radioshow_page_name" Association="Self.FK_album_or_radioshow_page_name">
+      <End Role="page_name" EntitySet="page_name" />
+      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_musics_music_types" Association="Self.FK_musics_music_types">
+      <End Role="music_types" EntitySet="music_types" />
+      <End Role="musics" EntitySet="musics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_videos_video_types" Association="Self.FK_videos_video_types">
+      <End Role="video_types" EntitySet="video_types" />
+      <End Role="videos" EntitySet="videos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

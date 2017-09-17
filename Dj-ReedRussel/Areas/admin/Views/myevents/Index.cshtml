@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Dj_ReedRussel.Models.myevent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_info)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventdatetime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_cover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_bk_photo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_info)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventdatetime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_cover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_bk_photo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

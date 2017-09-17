@@ -1,0 +1,35 @@
+﻿@model Dj_ReedRussel.Models.contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.site_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.site_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.profile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profile)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

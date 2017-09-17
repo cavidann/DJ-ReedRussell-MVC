@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Public/css/mob.css">
+    <link rel="stylesheet" href="~/Public/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Public/css/materialize.css">
+    <link rel="stylesheet" href="~/Public/css/admin.css">
+
+</head>
+<body>
+    @*@using asc_general.Models;
+    @{
+        var admin = Session["admin"] as admin;
+    }*@
+
+    <div class="container-fluid sb1">
+        <div class="row">
+            <!--== LOGO ==-->
+            <div class="col-md-2 col-sm-3 col-xs-6 sb1-1">
+                <!--<a href="#" class="btn-close-menu"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <a href="#" class="atab-menu"><i class="fa fa-bars tab-menu" aria-hidden="true"></i></a>
+                <a href="index-2.html" class="logo"><img src="images/logo1.png" alt="" />
+                </a>-->
+            </div>
+            <!--== SEARCH ==-->
+            <div class="col-md-6 col-sm-6 mob-hide">
+                <!--<form class="app-search">
+                    <input type="text" placeholder="Search..." class="form-control">
+                    <a href="#"><i class="fa fa-search"></i></a>
+                </form>-->
+            </div>
+            <!--== NOTIFICATION ==-->
+            <div class="col-md-2 tab-hide">
+                <!--<div class="top-not-cen">
+                    <a class='waves-effect btn-noti' href='#'><i class="fa fa-commenting-o" aria-hidden="true"></i><span>5</span></a>
+                    <a class='waves-effect btn-noti' href='#'><i class="fa fa-envelope-o" aria-hidden="true"></i><span>5</span></a>
+                    <a class='waves-effect btn-noti' href='#'><i class="fa fa-tag" aria-hidden="true"></i><span>5</span></a>
+                </div>-->
+            </div>
+            <!--== MY ACCCOUNT ==-->
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <!-- Dropdown Trigger -->
+
+                <a class='waves-effect dropdown-button top-user-pro' href='#' data-activates='top-menu'>
+                    <img src="@*~/Uploads/@admin.image*@" alt="" style="width:23px;height:23px;" />My Account <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </a>
+
+                <!-- Dropdown Structure -->
+                <ul id='top-menu' class='dropdown-content top-menu-sty'>
+                    <li>
+                        <a href="@Url.Action("Index","myevents")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Events</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","musics")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Musics</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","music_types")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Music Types</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","videos")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Videos</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","video_types")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Video Types</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","album_or_radioshow")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Albums Or Radioshow</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","tracklists")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Tracklists</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","page_name")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Add Albums And Radioshow</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","contacts")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Contacts</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Logout", "admin")"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid sb2">
+        <div class="row">
+            <div class="sb2-1" style="position:fixed;">
+                <!--== USER INFO ==-->
+                <div class="sb2-12">
+                    <ul>
+                        <li>
+                            <img src="" alt="" style="width:31px; height:31px;">
+                        </li>
+                        <li>
+                            <h4>Welcome, </h4>
+                        </li>
+                        <li></li>
+                    </ul>
+                </div>
+                <!--== LEFT MENU ==-->
+                <div class="sb2-13">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <a href="@Url.Action("Index","myevents")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Events</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","musics")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Musics</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","music_types")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Music Types</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","videos")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Videos</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","video_types")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Video Types</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","album_or_radioshow")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Albums Or Radioshow</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","tracklists")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Tracklists</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","page_name")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Add Albums And Radioshow</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","contacts")" class="waves-effect"><i class="fa fa-cogs" aria-hidden="true"></i>Contacts</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Logout", "admin")"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--== BODY INNER CONTAINER ==-->
+
+
+        </div>
+    </div>
+
+    <div class="sb2-2">
+
+
+        @RenderBody()
+
+
+    </div>
+    <script src="~/Public/js/jquery.min.js"></script>
+    <script src="~/Public/js/bootstrap.min.js"></script>
+    <script src="~/Public/js/materialize.min.js"></script>
+    <script src="~/Public/js/admin.js"></script>
+
+</body>
+
+
+</html>
