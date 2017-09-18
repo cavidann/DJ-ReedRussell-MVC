@@ -19,7 +19,7 @@
             @Html.DisplayNameFor(model => model.link)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.video_types.name)
+            @Html.DisplayNameFor(model => model.video_types)
         </th>
         <th></th>
     </tr>
@@ -27,7 +27,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.cover)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.cover)" width="100" alt="Image" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.link)

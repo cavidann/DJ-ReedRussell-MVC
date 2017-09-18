@@ -21,19 +21,25 @@
         <th>
             @Html.DisplayNameFor(model => model.music_types)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.music_src)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.music_cover)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.music_cover)" width="100" alt="Image" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.music_info)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.music_types.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.music_src)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

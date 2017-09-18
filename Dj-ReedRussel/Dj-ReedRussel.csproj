@@ -150,15 +150,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
-    <Compile Include="Areas\admin\Controllers\albumOrRadioshowCrud\album_or_radioshowController.cs" />
-    <Compile Include="Areas\admin\Controllers\contactCrud\contactsController.cs" />
-    <Compile Include="Areas\admin\Controllers\eventCrud\myeventsController.cs" />
-    <Compile Include="Areas\admin\Controllers\musicCrud\musicsController.cs" />
-    <Compile Include="Areas\admin\Controllers\musicTypeCrud\music_typesController.cs" />
-    <Compile Include="Areas\admin\Controllers\pageNameCrud\page_nameController.cs" />
-    <Compile Include="Areas\admin\Controllers\tracklistCrud\tracklistsController.cs" />
-    <Compile Include="Areas\admin\Controllers\videoTypeCrud\video_typesController.cs" />
-    <Compile Include="Areas\admin\Controllers\videoCrud\videosController.cs" />
+    <Compile Include="Areas\admin\Controllers\adminController.cs" />
+    <Compile Include="Areas\admin\Controllers\album_or_radioshowController.cs" />
+    <Compile Include="Areas\admin\Controllers\contactsController.cs" />
+    <Compile Include="Areas\admin\Controllers\musicsController.cs" />
+    <Compile Include="Areas\admin\Controllers\music_typesController.cs" />
+    <Compile Include="Areas\admin\Controllers\myeventsController.cs" />
+    <Compile Include="Areas\admin\Controllers\page_nameController.cs" />
+    <Compile Include="Areas\admin\Controllers\tracklistsController.cs" />
+    <Compile Include="Areas\admin\Controllers\videosController.cs" />
+    <Compile Include="Areas\admin\Controllers\video_typesController.cs" />
     <Compile Include="Controllers\AlbumItem\AlbumItemController.cs" />
     <Compile Include="Controllers\Albums\AlbumsController.cs" />
     <Compile Include="Controllers\Contact\ContactController.cs" />
@@ -199,6 +200,9 @@
     <Compile Include="Models\music_types.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\myadmin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\myevent.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -233,6 +237,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Public\iCheck\icheck.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -291,6 +296,8 @@
     <Content Include="Areas\admin\Views\myevents\Details.cshtml" />
     <Content Include="Areas\admin\Views\myevents\Edit.cshtml" />
     <Content Include="Areas\admin\Views\myevents\Index.cshtml" />
+    <Content Include="Areas\admin\Views\admin\Login.cshtml" />
+    <Content Include="Areas\admin\Views\admin\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -329,7 +336,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Models\" />
     <Folder Include="Areas\admin\Views\Shared\" />
-    <Folder Include="Public\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

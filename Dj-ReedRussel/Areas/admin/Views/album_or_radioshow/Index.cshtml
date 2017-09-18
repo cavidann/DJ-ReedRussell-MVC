@@ -31,7 +31,10 @@
             @Html.DisplayNameFor(model => model.tracklist.music_name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.page_name.name)
+            @Html.DisplayNameFor(model => model.page_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.src)
         </th>
         <th></th>
     </tr>
@@ -39,7 +42,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.cover)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.cover)" width="100" alt="Image" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.header)
@@ -58,6 +61,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.page_name.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.src)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

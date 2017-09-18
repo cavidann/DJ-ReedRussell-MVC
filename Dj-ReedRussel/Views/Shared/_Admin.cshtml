@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Dj_ReedRussel.Models;
+@{
+    var myadmin = Session["myadmin"] as myadmin;
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -12,11 +16,8 @@
 
 </head>
 <body>
-    @*@using asc_general.Models;
-    @{
-        var admin = Session["admin"] as admin;
-    }*@
 
+    
     <div class="container-fluid sb1">
         <div class="row">
             <!--== LOGO ==-->
@@ -96,7 +97,7 @@
                             <img src="" alt="" style="width:31px; height:31px;">
                         </li>
                         <li>
-                            <h4>Welcome, </h4>
+                            <h4>Welcome, @myadmin.adminnme</h4>
                         </li>
                         <li></li>
                     </ul>

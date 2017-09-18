@@ -1,54 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="dj_reedrussellModelStoreContainer" CdmEntityContainer="dj_reedrussellEntities">
-    <EntitySetMapping Name="contacts">
-      <EntityTypeMapping TypeName="dj_reedrussellModel.contact">
-        <MappingFragment StoreEntitySet="contact">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="site_name" ColumnName="site_name" />
-          <ScalarProperty Name="profile" ColumnName="profile" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="music_types">
-      <EntityTypeMapping TypeName="dj_reedrussellModel.music_types">
-        <MappingFragment StoreEntitySet="music_types">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="musics">
-      <EntityTypeMapping TypeName="dj_reedrussellModel.music">
-        <MappingFragment StoreEntitySet="musics">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="music_cover" ColumnName="music_cover" />
-          <ScalarProperty Name="music_info" ColumnName="music_info" />
-          <ScalarProperty Name="music_types_id" ColumnName="music_types_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="video_types">
-      <EntityTypeMapping TypeName="dj_reedrussellModel.video_types">
-        <MappingFragment StoreEntitySet="video_types">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="videos">
-      <EntityTypeMapping TypeName="dj_reedrussellModel.video">
-        <MappingFragment StoreEntitySet="videos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="cover" ColumnName="cover" />
-          <ScalarProperty Name="link" ColumnName="link" />
-          <ScalarProperty Name="video_types_id" ColumnName="video_types_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="album_or_radioshow">
       <EntityTypeMapping TypeName="dj_reedrussellModel.album_or_radioshow">
         <MappingFragment StoreEntitySet="album_or_radioshow">
+          <ScalarProperty Name="src" ColumnName="src" />
           <ScalarProperty Name="album_type" ColumnName="album_type" />
           <ScalarProperty Name="page_name_id" ColumnName="page_name_id" />
           <ScalarProperty Name="tracklist_id" ColumnName="tracklist_id" />
@@ -56,6 +12,46 @@
           <ScalarProperty Name="author" ColumnName="author" />
           <ScalarProperty Name="header" ColumnName="header" />
           <ScalarProperty Name="cover" ColumnName="cover" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="dj_reedrussellModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="profile" ColumnName="profile" />
+          <ScalarProperty Name="site_name" ColumnName="site_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="music_types">
+      <EntityTypeMapping TypeName="dj_reedrussellModel.music_types">
+        <MappingFragment StoreEntitySet="music_types">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="musics">
+      <EntityTypeMapping TypeName="dj_reedrussellModel.music">
+        <MappingFragment StoreEntitySet="musics">
+          <ScalarProperty Name="music_src" ColumnName="music_src" />
+          <ScalarProperty Name="music_types_id" ColumnName="music_types_id" />
+          <ScalarProperty Name="music_info" ColumnName="music_info" />
+          <ScalarProperty Name="music_cover" ColumnName="music_cover" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="myevents">
+      <EntityTypeMapping TypeName="dj_reedrussellModel.myevent">
+        <MappingFragment StoreEntitySet="myevent">
+          <ScalarProperty Name="event_bk_photo" ColumnName="event_bk_photo" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="eventdatetime" ColumnName="eventdatetime" />
+          <ScalarProperty Name="event_info" ColumnName="event_info" />
+          <ScalarProperty Name="event_name" ColumnName="event_name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -78,14 +74,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="myevents">
-      <EntityTypeMapping TypeName="dj_reedrussellModel.myevent">
-        <MappingFragment StoreEntitySet="myevent">
-          <ScalarProperty Name="event_bk_photo" ColumnName="event_bk_photo" />
-          <ScalarProperty Name="event_cover" ColumnName="event_cover" />
-          <ScalarProperty Name="eventdatetime" ColumnName="eventdatetime" />
-          <ScalarProperty Name="event_info" ColumnName="event_info" />
-          <ScalarProperty Name="event_name" ColumnName="event_name" />
+    <EntitySetMapping Name="video_types">
+      <EntityTypeMapping TypeName="dj_reedrussellModel.video_types">
+        <MappingFragment StoreEntitySet="video_types">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="videos">
+      <EntityTypeMapping TypeName="dj_reedrussellModel.video">
+        <MappingFragment StoreEntitySet="videos">
+          <ScalarProperty Name="video_types_id" ColumnName="video_types_id" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="cover" ColumnName="cover" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="myadmins">
+      <EntityTypeMapping TypeName="dj_reedrussellModel.myadmin">
+        <MappingFragment StoreEntitySet="myadmin">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="adminnme" ColumnName="adminnme" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

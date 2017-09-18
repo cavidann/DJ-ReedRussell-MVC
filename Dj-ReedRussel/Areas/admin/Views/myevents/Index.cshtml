@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.eventdatetime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.event_cover)
+            @Html.DisplayNameFor(model => model.photo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.event_bk_photo)
@@ -42,10 +42,10 @@
             @Html.DisplayFor(modelItem => item.eventdatetime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.event_cover)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.photo)" width="100" alt="Image" />
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.event_bk_photo)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.event_bk_photo)" width="100" alt="Image" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

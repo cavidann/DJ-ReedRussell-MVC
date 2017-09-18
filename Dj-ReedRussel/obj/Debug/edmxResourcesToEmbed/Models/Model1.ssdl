@@ -12,6 +12,7 @@
     <Property Name="tracklist_id" Type="int" />
     <Property Name="page_name_id" Type="int" />
     <Property Name="album_type" Type="nchar" MaxLength="10" />
+    <Property Name="src" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="contact">
     <Key>
@@ -36,6 +37,15 @@
     <Property Name="music_cover" Type="nvarchar(max)" />
     <Property Name="music_info" Type="nvarchar(max)" />
     <Property Name="music_types_id" Type="int" />
+    <Property Name="music_src" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="myadmin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adminnme" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="myevent">
     <Key>
@@ -45,7 +55,7 @@
     <Property Name="event_name" Type="nvarchar" MaxLength="50" />
     <Property Name="event_info" Type="nvarchar(max)" />
     <Property Name="eventdatetime" Type="nvarchar" MaxLength="50" />
-    <Property Name="event_cover" Type="nvarchar(max)" />
+    <Property Name="photo" Type="nvarchar(max)" />
     <Property Name="event_bk_photo" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="page_name">
@@ -133,6 +143,7 @@
     <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="music_types" EntityType="Self.music_types" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="musics" EntityType="Self.musics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="myadmin" EntityType="Self.myadmin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="myevent" EntityType="Self.myevent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="page_name" EntityType="Self.page_name" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tracklist" EntityType="Self.tracklist" Schema="dbo" store:Type="Tables" />

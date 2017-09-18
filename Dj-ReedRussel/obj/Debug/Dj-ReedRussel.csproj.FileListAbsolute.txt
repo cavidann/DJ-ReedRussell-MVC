@@ -68,4 +68,3 @@ C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.dll
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.SqlServer.dll
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.xml
 C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\bin\EntityFramework.SqlServer.xml
-C:\Users\Cavidan\Desktop\Dj-ReedRussel\Dj-ReedRussel\obj\Debug\Dj-ReedRussel.csprojResolveAssemblyReference.cache

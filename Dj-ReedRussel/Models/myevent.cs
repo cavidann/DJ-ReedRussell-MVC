@@ -18,7 +18,7 @@ namespace Dj_ReedRussel.Models
         public string event_name { get; set; }
         public string event_info { get; set; }
         public string eventdatetime { get; set; }
-        public string event_cover { get; set; }
+        public string photo { get; set; }
         public string event_bk_photo { get; set; }
     }
 }

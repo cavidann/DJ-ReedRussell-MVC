@@ -7,7 +7,8 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@Html.AntiForgeryToken()
+@using (Html.BeginForm("Create", "album_or_radioshow", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -15,11 +16,19 @@
         <h4>album_or_radioshow</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.cover, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cover, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cover, "", new { @class = "text-danger" })
+        <div class="input-field col s12">
+            <div class="file-field">
+                <div class="btn">
+                    <span>Choose File</span>
+                    <input type="file" id="cover" name="cover">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload Photo">
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <p class="text-danger">@ViewBag.Message</p>
+                }
             </div>
         </div>
 
@@ -68,6 +77,22 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.album_type, new { htmlAttributes = new { @class = "" } })
                 @Html.ValidationMessageFor(model => model.album_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="input-field col s12">
+            <div class="file-field">
+                <div class="btn">
+                    <span>Choose File</span>
+                    <input type="file" id="src" name="src">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload Music">
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <p class="text-danger">@ViewBag.Message</p>
+                }
             </div>
         </div>
 

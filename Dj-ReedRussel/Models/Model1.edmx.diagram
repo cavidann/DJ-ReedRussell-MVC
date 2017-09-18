@@ -5,19 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0fc6c36020534670a055801172467a18" Name="Diagram1">
-        <EntityTypeShape EntityType="dj_reedrussellModel.contact" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.music_types" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.music" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.video_types" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.video" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="dj_reedrussellModel.FK_musics_music_types" ManuallyRouted="false" />
-        <AssociationConnector Association="dj_reedrussellModel.FK_videos_video_types" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.album_or_radioshow" Width="1.5" PointX="10.625" PointY="4" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.page_name" Width="1.5" PointX="8.375" PointY="4.625" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.tracklist" Width="1.5" PointX="8.375" PointY="7.5" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.album_or_radioshow" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.contact" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.music_types" Width="1.5" PointX="2.75" PointY="6.25" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.music" Width="1.5" PointX="5" PointY="5.875" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.myevent" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.page_name" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.tracklist" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.video_types" Width="1.5" PointX="5.75" PointY="1.125" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.video" Width="1.5" PointX="8" PointY="0.875" />
         <AssociationConnector Association="dj_reedrussellModel.FK_album_or_radioshow_album_or_radioshow1" />
         <AssociationConnector Association="dj_reedrussellModel.FK_album_or_radioshow_page_name" />
-        <EntityTypeShape EntityType="dj_reedrussellModel.myevent" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="dj_reedrussellModel.FK_musics_music_types" />
+        <AssociationConnector Association="dj_reedrussellModel.FK_videos_video_types" />
+        <EntityTypeShape EntityType="dj_reedrussellModel.myadmin" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -22,6 +22,7 @@ namespace Dj_ReedRussel.Models
         public Nullable<int> tracklist_id { get; set; }
         public Nullable<int> page_name_id { get; set; }
         public string album_type { get; set; }
+        public string src { get; set; }
     
         public virtual tracklist tracklist { get; set; }
         public virtual page_name page_name { get; set; }

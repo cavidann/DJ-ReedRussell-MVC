@@ -18,6 +18,7 @@ namespace Dj_ReedRussel.Models
         public string music_cover { get; set; }
         public string music_info { get; set; }
         public Nullable<int> music_types_id { get; set; }
+        public string music_src { get; set; }
     
         public virtual music_types music_types { get; set; }
     }
