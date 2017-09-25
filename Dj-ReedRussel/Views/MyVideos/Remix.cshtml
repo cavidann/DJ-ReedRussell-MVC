@@ -1,39 +1,51 @@
 ﻿@using Dj_ReedRussel.Models;
 @model dynamic
 @{
-    ViewBag.Title = "Events";
+    ViewBag.Title = "Video-Remixes";
     Layout = "~/Views/Shared/Menu_Footer.cshtml";
 }
 
+
+<!--page starts-->
 <section>
     <div class="back">
         <div class="page-name">
             <h3> Lorem ipsum dolor sit amet.</h3>
-            <h2 class="title">events</h2>
+            <h2 class="title">Videos</h2>
         </div>
     </div>
 </section>
 <!--page ends-->
 <!--page content starts-->
-<section class="event">
+<section class="modal-galery" style="background:#04010d;">
     <div class="container">
         <div class="row">
-            <div class="albums counters">
-                @foreach (myevent item in Model.events)
-                {
-                    <div class="albums-item">
-                        <a href="@Url.Action("Index","EventItem",new { id = item.id })">
-                            <img src="~/Uploads/@item.photo" alt="" class="img-responsive" style="width:100%">
-                            <div class="about">
-                                <p>@item.eventdatetime.Substring(0, Math.Min(item.event_info.Length, 12))</p>
-                                <p>@item.event_name</p>
-                                <p time='@item.eventdatetime'>.</p>
-                                <p>@item.event_info.Substring(0, Math.Min(item.event_info.Length, 40))...</p>
-                            </div>
-                        </a>
-                    </div>
-                }
+            <div class="forheader">
+                <span>music SECTION</span>
+                <h3 style="margin-bottom: 83px;margin-top: 8px;">VIDEOS</h3>
             </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="list">
+                @foreach (video item in Model.videos)
+                {
+                    <a href="@item.link" class="gallery1">
+                        <img src="~/Uploads/@item.cover" alt="mabas sbm95" />
+                        <i class="fa fa-play-circle"></i>
+                    </a>
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal_inner">
+            <img class="close" src="~/Public/img/close.png" width="32">
+            <img class="left" src="~/Public/img/arrow-left.png" width="32">
+            <img class="right" src="~/Public/img/arrow-right.png" width="32">
         </div>
     </div>
 </section>
@@ -55,5 +67,3 @@
     </div>
 </section>
 <!--festival ends-->
-
-

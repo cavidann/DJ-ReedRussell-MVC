@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Radio Show</title>
+    <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -36,6 +36,7 @@
                 background: rgba(255, 0, 122, 0.4);
             }
     </style>
+   
     <!--menu starts-->
     <section class="menu-position">
         <div class="container">
@@ -51,17 +52,17 @@
                         <div class="dropdown">
                             <a><button class="dropbtn">Videos</button></a>
                             <div class="dropdown-content">
-                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Singles", "Index", "Videos")</button>
-                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Remixes", "Index", "Videos")</button>
-                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Vlogs", "Index", "Videos")</button>
-                                <button><a href="@Url.Action("Index", "Videos")"></a>@Html.ActionLink("Lesson", "Index", "Videos")</button>
+                                <button>@Html.ActionLink("Singles", "Single", "MyVideos")</button>
+                                <button>@Html.ActionLink("Remixes","Remix", "MyVideos")</button>
+                                <button>@Html.ActionLink("Vlogs","Vlog", "MyVideos")</button>
+                                <button>@Html.ActionLink("Lessons", "Lesson", "MyVideos")</button>
                             </div>
                         </div>
                         <div class="dropdown">
                             <a><button class="dropbtn">Musics</button></a>
                             <div class="dropdown-content">
-                                <button>@Html.ActionLink("Singles", "Index", "Musics")</button>
-                                <button>@Html.ActionLink("Remixes", "Index", "Musics")</button>
+                                <button>@Html.ActionLink("Singles", "Single", "MyMusics")</button>
+                                <button>@Html.ActionLink("Remixes", "Remix", "MyMusics")</button>
                             </div>
                         </div>
                         <a href="@Url.Action("Index", "RadioShow")"><button>Radio Show</button></a>
@@ -81,10 +82,10 @@
                     <b>
                         VIDEOS<i class="fa fa-angle-down  pull-right" aria-hidden="true"></i>
                         <ul class="galery">
-                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Singles", "Index", "Videos")</li>
-                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Remixes", "Index", "Videos")</li>
-                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Vlogs", "Index", "Videos")</li>
-                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Lessons", "Index", "Videos")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Singles", "Single", "MyVideos")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Remixes", "Remix", "MyVideos")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Vlogs", "Vlog", "MyVideos")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Lessons", "Lesson", "MyVideos")</li>
                         </ul>
                     </b>
                 <li class="dropdown_blog">
@@ -92,8 +93,8 @@
                         MUSICS<i class="fa fa-angle-down  pull-right" aria-hidden="true"></i>
 
                         <ul class="blog">
-                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Singles", "Index", "Musics")</li>
-                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Remixes", "Index", "Musics")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Singles", "Single", "MyMusics")</li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Remixes", "Remix", "MyMusics")</li>
                         </ul>
                     </b>
                 <li><b>@Html.ActionLink("Radio Show", "Index", "RadioShow")</b></li>

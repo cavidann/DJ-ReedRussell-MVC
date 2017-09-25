@@ -1,0 +1,43 @@
+﻿@using Dj_ReedRussel.Models;
+@model dynamic
+@{
+    ViewBag.Title = "Music-Singles";
+    Layout = "~/Views/Shared/Menu_Footer.cshtml";
+}
+
+
+
+ <!--page starts-->
+<section>
+    <div class="back">
+        <div class="page-name">
+            <h3> Lorem ipsum dolor sit amet.</h3>
+            <h2 class="title">contact</h2>
+        </div>
+    </div>
+</section>
+<!--page ends-->
+<section class="music">
+    <div class="container">
+        <div class="row music-list">
+            @foreach (music item in Model.musics){
+                <div class="col-md-4 col-sm-6">
+                    <div class="music-item" style="background:url(/Uploads/@item.music_cover) no-repeat;background-size:cover">
+                        <p class="info">
+                            <br><i class="fa fa-times" aria-hidden="true"></i><br>v jv @item.music_info
+                        </p>
+                        <audio class="stp">
+                            <source src="~/Uploads/@item.music_src" />
+                        </audio>
+                        <i class="fa fa-play"></i>
+                        <p class="info-btn">info</p>
+                    </div>
+                </div>
+            }
+            
+
+
+
+        </div>
+    </div>
+</section>

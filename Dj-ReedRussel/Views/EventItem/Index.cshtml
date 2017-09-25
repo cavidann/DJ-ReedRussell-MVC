@@ -1,6 +1,7 @@
-﻿
+﻿@using Dj_ReedRussel.Models;
+@model dynamic
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Event";
     Layout = "~/Views/Shared/Menu_Footer.cshtml";
 }
 
@@ -18,27 +19,10 @@
     <div class="container">
         <div class="row">
             <span>ABOUT EVENT</span>
-            <h3>INDIE ROCK FESTIVAL</h3>
-            <p>
-                Lorem ipsum dolor sit amet, lucilius dignissim has ne. Vero dolorem has et, quando omittam ius ea, ut consul
-                everti indoctum mea. Ei cum facilisi philosophia, sed no postea meliore gloriatur, voluptua suscipiantur
-                ne eum. Vim ad decore nostro, quo ad erant legere, brute animal quo eu. Clita convenire expetendis per
-                cu, ei mutat recusabo usu. Quo mucius audire oporteat no, suas ancillae ne his. Lorem ipsum dolor sit
-                amet, lucilius dignissim has ne.
-            </p>
-            <p>
-                Vero dolorem has et, quando omittam ius ea, ut consul everti indoctum mea. Ei cum facilisi philosophia, sed
-                no postea meliore gloriatur, voluptua suscipiantur ne eum. Vim ad decore nostro. Lorem ipsum dolor sit
-                amet, lucilius dignissim has ne. Vero dolorem has et, quando omittam ius ea, ut consul everti indoctum
-                mea. Ei cum facilisi philosophia, sed no postea meliore gloriatur, voluptua suscipiantur ne eum. Vim
-                ad decore nostro, quo ad erant legere, brute animal quo eu. Clita convenire expetendis per cu, ei mutat
-                recusabo usu.
-            </p>
-            <p>
-                Quo mucius audire oporteat no, suas ancillae ne his. Lorem ipsum dolor sit amet, lucilius dignissim has ne.
-                Vero dolorem has et, quando omittam ius ea, ut consul everti indoctum mea. Ei cum facilisi philosophia,
-                sed no postea meliore gloriatur, voluptua suscipiantur ne eum. Vim ad decore nostro.
-            </p>
+            <h3>@Model.event_item.event_name</h3>
+            <p>@Model.event_item.event_info;</p>
+            
+            
         </div>
     </div>
 </section>
@@ -52,14 +36,14 @@
                     <div class="time">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                         <br><span>EVENT DATE</span>
-                        <h2>20th Jan - 25th Jan</h2>
+                        <h2>@Model.event_item.eventdatetime.Substring(0, Math.Min(@Model.event_item.eventdatetime.Length, 12))</h2>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="time">
                         <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        <br><span>EVENT DATE</span>
-                        <h2>6:30 - 10:00</h2>
+                        <br><span>EVENT start</span>
+                        <h2>@Model.event_item.eventdatetime.Substring(13, Math.Min(@Model.event_item.eventdatetime.Length, 5))</h2>
                     </div>
                 </div>
 
@@ -73,53 +57,23 @@
         <div class="row">
             <div class="forheader">
                 <span>ABOUT EVENT</span>
-                <h3>INDIE ROCK FESTIVAL</h3>
+                <h3>OTHER FESTIVAL</h3>
             </div>
             <div class="albums counters">
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
-                        <div class="about">
-                            <p>ReedRussell</p>
-                            <p>ReedRussell</p>
-                            <p time='Mar 21, 2018 00:00:00'>.</p>
-                            <p>ReedRussell</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
-                        <div class="about">
-                            <p>ReedRussell</p>
-                            <p>ReedRussell</p>
-                            <p time='Mar 21, 2018 00:00:00'>.</p>
-                            <p>ReedRussell</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
-                        <div class="about">
-                            <p>ReedRussell</p>
-                            <p>ReedRussell</p>
-                            <p time='Mar 21, 2018 00:00:00'>.</p>
-                            <p>ReedRussell</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/event.jpg" alt="" class="img-responsive">
-                        <div class="about">
-                            <p>ReedRussell</p>
-                            <p>ReedRussell</p>
-                            <p time='Mar 21, 2018 00:00:00'>.</p>
-                            <p>ReedRussell</p>
-                        </div>
-                    </a>
-                </div>
+                @foreach (myevent item in Model.otherevents)
+                {
+                    <div class="albums-item">
+                        <a href="@Url.Action("Index","EventItem",new { id = item.id })">
+                            <img src="~/Uploads/@item.photo" alt="" class="img-responsive" style="width:100%">
+                            <div class="about">
+                                <p>@item.eventdatetime</p>
+                                <p>@item.event_name</p>
+                                <p time='@item.eventdatetime'>.</p>
+                                <p>@item.event_info.Substring(0, Math.Min(item.event_info.Length, 40))...</p>
+                            </div>
+                        </a>
+                    </div>
+                }
             </div>
         </div>
     </div>

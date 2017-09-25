@@ -166,10 +166,10 @@
     <Compile Include="Controllers\EventItem\EventItemController.cs" />
     <Compile Include="Controllers\Events\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Musics\MusicsController.cs" />
+    <Compile Include="Controllers\Musics\MyMusicsController.cs" />
     <Compile Include="Controllers\MyHome\MyHomeController.cs" />
     <Compile Include="Controllers\RadioShow\RadioShowController.cs" />
-    <Compile Include="Controllers\Videos\VideosController.cs" />
+    <Compile Include="Controllers\MyVideos\MyVideosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -328,9 +328,13 @@
     <Content Include="Views\AlbumItem\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\RadioShow\Index.cshtml" />
-    <Content Include="Views\Musics\Index.cshtml" />
-    <Content Include="Views\Videos\Index.cshtml" />
+    <Content Include="Views\MyMusics\Single.cshtml" />
+    <Content Include="Views\MyVideos\Single.cshtml" />
     <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\MyVideos\Remix.cshtml" />
+    <Content Include="Views\MyVideos\Lesson.cshtml" />
+    <Content Include="Views\MyVideos\Vlog.cshtml" />
+    <Content Include="Views\MyMusics\Remix.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
