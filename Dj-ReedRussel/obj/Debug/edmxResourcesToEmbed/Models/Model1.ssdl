@@ -6,13 +6,11 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cover" Type="nvarchar(max)" />
-    <Property Name="header" Type="nvarchar" MaxLength="50" />
+    <Property Name="album_name" Type="nvarchar" MaxLength="50" />
     <Property Name="author" Type="nvarchar" MaxLength="50" />
     <Property Name="info" Type="nvarchar(max)" />
-    <Property Name="tracklist_id" Type="int" />
     <Property Name="page_name_id" Type="int" />
     <Property Name="album_type" Type="nchar" MaxLength="10" />
-    <Property Name="src" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="contact">
     <Key>
@@ -73,6 +71,7 @@
     <Property Name="music_name" Type="nvarchar" MaxLength="50" />
     <Property Name="music_time" Type="nvarchar" MaxLength="5" />
     <Property Name="music_src" Type="nvarchar(max)" />
+    <Property Name="album_or_radishow_id" Type="int" />
   </EntityType>
   <EntityType Name="video_types">
     <Key>
@@ -90,18 +89,6 @@
     <Property Name="link" Type="nvarchar(max)" />
     <Property Name="video_types_id" Type="int" />
   </EntityType>
-  <Association Name="FK_album_or_radioshow_album_or_radioshow1">
-    <End Role="tracklist" Type="Self.tracklist" Multiplicity="0..1" />
-    <End Role="album_or_radioshow" Type="Self.album_or_radioshow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tracklist">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="album_or_radioshow">
-        <PropertyRef Name="tracklist_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_album_or_radioshow_page_name">
     <End Role="page_name" Type="Self.page_name" Multiplicity="0..1" />
     <End Role="album_or_radioshow" Type="Self.album_or_radioshow" Multiplicity="*" />
@@ -123,6 +110,18 @@
       </Principal>
       <Dependent Role="musics">
         <PropertyRef Name="music_types_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tracklist_tracklist">
+    <End Role="album_or_radioshow" Type="Self.album_or_radioshow" Multiplicity="0..1" />
+    <End Role="tracklist" Type="Self.tracklist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="album_or_radioshow">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tracklist">
+        <PropertyRef Name="album_or_radishow_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -149,10 +148,6 @@
     <EntitySet Name="tracklist" EntityType="Self.tracklist" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="video_types" EntityType="Self.video_types" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="videos" EntityType="Self.videos" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_album_or_radioshow_album_or_radioshow1" Association="Self.FK_album_or_radioshow_album_or_radioshow1">
-      <End Role="tracklist" EntitySet="tracklist" />
-      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
-    </AssociationSet>
     <AssociationSet Name="FK_album_or_radioshow_page_name" Association="Self.FK_album_or_radioshow_page_name">
       <End Role="page_name" EntitySet="page_name" />
       <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
@@ -160,6 +155,10 @@
     <AssociationSet Name="FK_musics_music_types" Association="Self.FK_musics_music_types">
       <End Role="music_types" EntitySet="music_types" />
       <End Role="musics" EntitySet="musics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tracklist_tracklist" Association="Self.FK_tracklist_tracklist">
+      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
+      <End Role="tracklist" EntitySet="tracklist" />
     </AssociationSet>
     <AssociationSet Name="FK_videos_video_types" Association="Self.FK_videos_video_types">
       <End Role="video_types" EntitySet="video_types" />

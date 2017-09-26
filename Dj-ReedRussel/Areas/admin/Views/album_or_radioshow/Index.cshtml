@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.cover)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.header)
+            @Html.DisplayNameFor(model => model.album_name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.author)
@@ -28,13 +28,7 @@
             @Html.DisplayNameFor(model => model.album_type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tracklist.music_name)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.page_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.src)
         </th>
         <th></th>
     </tr>
@@ -45,7 +39,7 @@
             <img src="~/Uploads/@Html.DisplayFor(modelItem => item.cover)" width="100" alt="Image" />
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.header)
+            @Html.DisplayFor(modelItem => item.album_name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.author)
@@ -57,13 +51,7 @@
             @Html.DisplayFor(modelItem => item.album_type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tracklist.music_name)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.page_name.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.src)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

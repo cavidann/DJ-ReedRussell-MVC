@@ -14,18 +14,12 @@ namespace Dj_ReedRussel.Models
     
     public partial class tracklist
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tracklist()
-        {
-            this.album_or_radioshow = new HashSet<album_or_radioshow>();
-        }
-    
         public int id { get; set; }
         public string music_name { get; set; }
         public string music_time { get; set; }
         public string music_src { get; set; }
+        public Nullable<int> album_or_radishow_id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<album_or_radioshow> album_or_radioshow { get; set; }
+        public virtual album_or_radioshow album_or_radioshow { get; set; }
     }
 }

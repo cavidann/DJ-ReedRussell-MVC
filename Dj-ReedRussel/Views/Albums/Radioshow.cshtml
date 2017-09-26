@@ -1,7 +1,7 @@
 ﻿@using Dj_ReedRussel.Models;
 @model dynamic
 @{
-    ViewBag.Title = "Albums";
+    ViewBag.Title = "Radio Shows";
     Layout = "~/Views/Shared/Menu_Footer.cshtml";
 }
 
@@ -22,7 +22,7 @@
                 @foreach (album_or_radioshow item in Model.albums)
                 {
                     <div class="albums-item">
-                        <a href="@Url.Action("Index", "AlbumItem", new { id = item.id })">
+                        <a href="@Url.Action("Radioshow_item", "AlbumItem",new { id = item.id })">
                             <img src="~/Uploads/@item.cover" alt="">
                             <p>@item.author</p>
                         </a>
@@ -51,4 +51,3 @@
     </div>
 </section>
 <!--festival ends-->
-

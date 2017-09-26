@@ -65,7 +65,7 @@
                                 <button>@Html.ActionLink("Remixes", "Remix", "MyMusics")</button>
                             </div>
                         </div>
-                        <a href="@Url.Action("Index", "RadioShow")"><button>Radio Show</button></a>
+                        <a href="@Url.Action("RadioShow", "Albums")"><button>Radio Show</button></a>
                         <a href="@Url.Action("Index", "Contact")"><button>Contact</button></a>
                     </div>
                     <div class="clearfix"></div>
@@ -97,7 +97,7 @@
                             <li><i class="fa fa-angle-right" aria-hidden="true"></i>@Html.ActionLink("Remixes", "Remix", "MyMusics")</li>
                         </ul>
                     </b>
-                <li><b>@Html.ActionLink("Radio Show", "Index", "RadioShow")</b></li>
+                <li><b>@Html.ActionLink("Radio Show", "RadioShow", "Albums")</b></li>
                 <li><b>@Html.ActionLink("Contact", "Index", "Contact")</b></li>
 
             </ul>

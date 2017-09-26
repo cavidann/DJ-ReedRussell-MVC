@@ -1,6 +1,7 @@
-﻿
+﻿@using Dj_ReedRussel.Models;
+@model dynamic
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/Menu_Footer.cshtml";
 }
 
@@ -27,22 +28,13 @@
                 <h3 style="margin-bottom: 83px;margin-top: 8px;">MUSIC VIDEOS</h3>
             </div>
             <div class="list">
-                <a href="https://www.youtube.com/embed/feA64wXhbjo?list=RDGMEMYH9CUrFO7CfLJpaD7UR85wVMAd6SxduZfis" class="gallery1" style="width:50%;">
-                    <img src="~/Public/img/modal-galery.jpg" alt="mabas sbm95" />
-                    <i class="fa fa-play-circle"></i>
-                </a>
-                <a href="https://www.youtube.com/embed/z0tvIe1bC2g" class="gallery1" style="width:50%;">
-                    <img src="~/Public/img/modal-galery.jpg" alt="mabas sbm95" />
-                    <i class="fa fa-play-circle"></i>
-                </a>
-                <a href="https://www.youtube.com/embed/feA64wXhbjo?list=RDGMEMYH9CUrFO7CfLJpaD7UR85wVMAd6SxduZfis" class="gallery1" style="width:50%;">
-                    <img src="~/Public/img/modal-galery.jpg" alt="mabas sbm95" />
-                    <i class="fa fa-play-circle"></i>
-                </a>
-                <a href="https://www.youtube.com/embed/z0tvIe1bC2g" class="gallery1" style="width:50%;">
-                    <img src="~/Public/img/modal-galery.jpg" alt="mabas sbm95" />
-                    <i class="fa fa-play-circle"></i>
-                </a>
+                @foreach (video item in Model.videos)
+                {
+                    <a href="@item.link" class="gallery1" style="width:50%; ">
+                        <img src="~/Uploads/@item.cover" style="height:300px"alt="img" />
+                        <i class="fa fa-play-circle"></i>
+                    </a>
+                }
             </div>
         </div>
     </div>
@@ -62,36 +54,21 @@
                 <h3 style="margin-bottom: 83px;margin-top: 8px;">TOP ALBUMS</h3>
             </div>
             <div class="albums">
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/album.jpg" alt="">
-                        <p>ReedRussell</p>
-                    </a>
-                    <p class="type">dram</p>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/album.jpg" alt="">
-                        <p>ReedRussell</p>
-                    </a>
-                    <p class="type">dram</p>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/album.jpg" alt="">
-                        <p>ReedRussell</p>
-                    </a>
-                    <p class="type">dram</p>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/album.jpg" alt="">
-                        <p>ReedRussell</p>
-                    </a>
-                    <p class="type">dram</p>
-                </div>
+                @foreach (album_or_radioshow item in Model.albums)
+                {
+                    <div class="albums-item">
+                        <a href="@Url.Action("Index", "AlbumItem", new { id = item.id })">
+                            <img src="~/Uploads/@item.cover" alt="">
+                            <p>@item.author</p>
+                        </a>
+                        <p class="type">@item.album_type</p>
+                    </div>
+                }
+                
             </div>
-            <p class="z"><button class="btn">view more</button></p>
+            <a href="@Url.Action("Index", "Albums")">
+                <p class="z"><button class="btn">view more</button></p>
+            </a>
         </div>
     </div>
 </section>
@@ -104,39 +81,21 @@
                 <h3 style="margin-bottom: 83px;margin-top: 8px;">UPCOMING EVENTS</h3>
             </div>
             <div class="albums counters">
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/event.jpg" alt="">
-                        <div class="about">
-                            <p>ReedRussell</p>
-                            <p>ReedRussell</p>
-                            <p time='Mar 21, 2018 00:00:00'>.</p>
-                            <p>ReedRussell</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/event.jpg" alt="">
-                        <div class="about">
-                            <p>ReedRussell</p>
-                            <p>ReedRussell</p>
-                            <p time='Mar 21, 2019 00:00:00'>.</p>
-                            <p>ReedRussell</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="albums-item">
-                    <a href="album-item.html">
-                        <img src="~/Public/img/event.jpg" alt="">
-                        <div class="about">
-                            <p>ReedRussell</p>
-                            <p>ReedRussell</p>
-                            <p time='Mar 21, 2012 00:00:00'>.</p>
-                            <p>ReedRussell</p>
-                        </div>
-                    </a>
-                </div>
+                @foreach (myevent item in Model.events)
+                {
+                    <div class="albums-item">
+                        <a href="@Url.Action("Index","EventItem",new { id = item.id })">
+                            <img src="~/Uploads/@item.photo" alt="" class="img-responsive" style="width:100%">
+                            <div class="about">
+                                <p>@item.eventdatetime.Substring(0, Math.Min(item.event_info.Length, 12))</p>
+                                <p>@item.event_name</p>
+                                <p time='@item.eventdatetime'>.</p>
+                                <p>@item.event_info.Substring(0, Math.Min(item.event_info.Length, 40))...</p>
+                            </div>
+                        </a>
+                    </div>
+                }
+
 
             </div>
         </div>

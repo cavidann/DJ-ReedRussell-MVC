@@ -14,17 +14,22 @@ namespace Dj_ReedRussel.Models
     
     public partial class album_or_radioshow
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public album_or_radioshow()
+        {
+            this.tracklists = new HashSet<tracklist>();
+        }
+    
         public int id { get; set; }
         public string cover { get; set; }
-        public string header { get; set; }
+        public string album_name { get; set; }
         public string author { get; set; }
         public string info { get; set; }
-        public Nullable<int> tracklist_id { get; set; }
         public Nullable<int> page_name_id { get; set; }
         public string album_type { get; set; }
-        public string src { get; set; }
     
-        public virtual tracklist tracklist { get; set; }
         public virtual page_name page_name { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tracklist> tracklists { get; set; }
     }
 }

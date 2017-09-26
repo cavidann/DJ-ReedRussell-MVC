@@ -1,23 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dj_reedrussellModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="dj_reedrussellEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="album_or_radioshow" EntityType="dj_reedrussellModel.album_or_radioshow" />
     <EntitySet Name="contacts" EntityType="dj_reedrussellModel.contact" />
     <EntitySet Name="music_types" EntityType="dj_reedrussellModel.music_types" />
     <EntitySet Name="musics" EntityType="dj_reedrussellModel.music" />
     <EntitySet Name="myevents" EntityType="dj_reedrussellModel.myevent" />
-    <EntitySet Name="page_name" EntityType="dj_reedrussellModel.page_name" />
-    <EntitySet Name="tracklists" EntityType="dj_reedrussellModel.tracklist" />
     <EntitySet Name="video_types" EntityType="dj_reedrussellModel.video_types" />
     <EntitySet Name="videos" EntityType="dj_reedrussellModel.video" />
-    <AssociationSet Name="FK_album_or_radioshow_album_or_radioshow1" Association="dj_reedrussellModel.FK_album_or_radioshow_album_or_radioshow1">
-      <End Role="tracklist" EntitySet="tracklists" />
-      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
-    </AssociationSet>
-    <AssociationSet Name="FK_album_or_radioshow_page_name" Association="dj_reedrussellModel.FK_album_or_radioshow_page_name">
-      <End Role="page_name" EntitySet="page_name" />
-      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
-    </AssociationSet>
     <AssociationSet Name="FK_musics_music_types" Association="dj_reedrussellModel.FK_musics_music_types">
       <End Role="music_types" EntitySet="music_types" />
       <End Role="music" EntitySet="musics" />
@@ -27,23 +16,18 @@
       <End Role="video" EntitySet="videos" />
     </AssociationSet>
     <EntitySet Name="myadmins" EntityType="dj_reedrussellModel.myadmin" />
+    <EntitySet Name="album_or_radioshow" EntityType="dj_reedrussellModel.album_or_radioshow" />
+    <EntitySet Name="page_name" EntityType="dj_reedrussellModel.page_name" />
+    <EntitySet Name="tracklists" EntityType="dj_reedrussellModel.tracklist" />
+    <AssociationSet Name="FK_album_or_radioshow_page_name" Association="dj_reedrussellModel.FK_album_or_radioshow_page_name">
+      <End Role="page_name" EntitySet="page_name" />
+      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tracklist_tracklist" Association="dj_reedrussellModel.FK_tracklist_tracklist">
+      <End Role="album_or_radioshow" EntitySet="album_or_radioshow" />
+      <End Role="tracklist" EntitySet="tracklists" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="album_or_radioshow">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="cover" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="tracklist_id" Type="Int32" />
-    <Property Name="page_name_id" Type="Int32" />
-    <Property Name="album_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="src" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tracklist" Relationship="dj_reedrussellModel.FK_album_or_radioshow_album_or_radioshow1" FromRole="album_or_radioshow" ToRole="tracklist" />
-    <NavigationProperty Name="page_name" Relationship="dj_reedrussellModel.FK_album_or_radioshow_page_name" FromRole="album_or_radioshow" ToRole="page_name" />
-  </EntityType>
   <EntityType Name="contact">
     <Key>
       <PropertyRef Name="id" />
@@ -82,24 +66,6 @@
     <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="event_bk_photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="page_name">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="album_or_radioshow" Relationship="dj_reedrussellModel.FK_album_or_radioshow_page_name" FromRole="page_name" ToRole="album_or_radioshow" />
-  </EntityType>
-  <EntityType Name="tracklist">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="music_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="music_time" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="music_src" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="album_or_radioshow" Relationship="dj_reedrussellModel.FK_album_or_radioshow_album_or_radioshow1" FromRole="tracklist" ToRole="album_or_radioshow" />
-  </EntityType>
   <EntityType Name="video_types">
     <Key>
       <PropertyRef Name="id" />
@@ -118,30 +84,6 @@
     <Property Name="video_types_id" Type="Int32" />
     <NavigationProperty Name="video_types" Relationship="dj_reedrussellModel.FK_videos_video_types" FromRole="video" ToRole="video_types" />
   </EntityType>
-  <Association Name="FK_album_or_radioshow_album_or_radioshow1">
-    <End Type="dj_reedrussellModel.tracklist" Role="tracklist" Multiplicity="0..1" />
-    <End Type="dj_reedrussellModel.album_or_radioshow" Role="album_or_radioshow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tracklist">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="album_or_radioshow">
-        <PropertyRef Name="tracklist_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_album_or_radioshow_page_name">
-    <End Type="dj_reedrussellModel.page_name" Role="page_name" Multiplicity="0..1" />
-    <End Type="dj_reedrussellModel.album_or_radioshow" Role="album_or_radioshow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="page_name">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="album_or_radioshow">
-        <PropertyRef Name="page_name_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_musics_music_types">
     <End Type="dj_reedrussellModel.music_types" Role="music_types" Multiplicity="0..1" />
     <End Type="dj_reedrussellModel.music" Role="music" Multiplicity="*" />
@@ -174,4 +116,61 @@
     <Property Name="adminnme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="album_or_radioshow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cover" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="album_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="page_name_id" Type="Int32" />
+    <Property Name="album_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="page_name" Relationship="dj_reedrussellModel.FK_album_or_radioshow_page_name" FromRole="album_or_radioshow" ToRole="page_name" />
+    <NavigationProperty Name="tracklists" Relationship="dj_reedrussellModel.FK_tracklist_tracklist" FromRole="album_or_radioshow" ToRole="tracklist" />
+  </EntityType>
+  <EntityType Name="page_name">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="album_or_radioshow" Relationship="dj_reedrussellModel.FK_album_or_radioshow_page_name" FromRole="page_name" ToRole="album_or_radioshow" />
+  </EntityType>
+  <EntityType Name="tracklist">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="music_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="music_time" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="music_src" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="album_or_radishow_id" Type="Int32" />
+    <NavigationProperty Name="album_or_radioshow" Relationship="dj_reedrussellModel.FK_tracklist_tracklist" FromRole="tracklist" ToRole="album_or_radioshow" />
+  </EntityType>
+  <Association Name="FK_album_or_radioshow_page_name">
+    <End Type="dj_reedrussellModel.page_name" Role="page_name" Multiplicity="0..1" />
+    <End Type="dj_reedrussellModel.album_or_radioshow" Role="album_or_radioshow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="page_name">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="album_or_radioshow">
+        <PropertyRef Name="page_name_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tracklist_tracklist">
+    <End Type="dj_reedrussellModel.album_or_radioshow" Role="album_or_radioshow" Multiplicity="0..1" />
+    <End Type="dj_reedrussellModel.tracklist" Role="tracklist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="album_or_radioshow">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tracklist">
+        <PropertyRef Name="album_or_radishow_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

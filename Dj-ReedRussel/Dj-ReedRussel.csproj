@@ -276,21 +276,11 @@
     <Content Include="Areas\admin\Views\music_types\Details.cshtml" />
     <Content Include="Areas\admin\Views\music_types\Edit.cshtml" />
     <Content Include="Areas\admin\Views\music_types\Index.cshtml" />
-    <Content Include="Areas\admin\Views\tracklists\Create.cshtml" />
-    <Content Include="Areas\admin\Views\tracklists\Delete.cshtml" />
-    <Content Include="Areas\admin\Views\tracklists\Details.cshtml" />
-    <Content Include="Areas\admin\Views\tracklists\Edit.cshtml" />
-    <Content Include="Areas\admin\Views\tracklists\Index.cshtml" />
     <Content Include="Areas\admin\Views\page_name\Create.cshtml" />
     <Content Include="Areas\admin\Views\page_name\Delete.cshtml" />
     <Content Include="Areas\admin\Views\page_name\Details.cshtml" />
     <Content Include="Areas\admin\Views\page_name\Edit.cshtml" />
     <Content Include="Areas\admin\Views\page_name\Index.cshtml" />
-    <Content Include="Areas\admin\Views\album_or_radioshow\Create.cshtml" />
-    <Content Include="Areas\admin\Views\album_or_radioshow\Delete.cshtml" />
-    <Content Include="Areas\admin\Views\album_or_radioshow\Details.cshtml" />
-    <Content Include="Areas\admin\Views\album_or_radioshow\Edit.cshtml" />
-    <Content Include="Areas\admin\Views\album_or_radioshow\Index.cshtml" />
     <Content Include="Areas\admin\Views\myevents\Create.cshtml" />
     <Content Include="Areas\admin\Views\myevents\Delete.cshtml" />
     <Content Include="Areas\admin\Views\myevents\Details.cshtml" />
@@ -298,6 +288,16 @@
     <Content Include="Areas\admin\Views\myevents\Index.cshtml" />
     <Content Include="Areas\admin\Views\admin\Login.cshtml" />
     <Content Include="Areas\admin\Views\admin\Index.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Create.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Details.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\album_or_radioshow\Index.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Create.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Details.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\tracklists\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -335,6 +335,8 @@
     <Content Include="Views\MyVideos\Lesson.cshtml" />
     <Content Include="Views\MyVideos\Vlog.cshtml" />
     <Content Include="Views\MyMusics\Remix.cshtml" />
+    <Content Include="Views\Albums\Radioshow.cshtml" />
+    <Content Include="Views\AlbumItem\Radioshow_item.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

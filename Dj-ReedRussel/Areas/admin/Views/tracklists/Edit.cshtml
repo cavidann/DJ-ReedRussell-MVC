@@ -7,7 +7,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
+@Html.AntiForgeryToken()
+@using (Html.BeginForm("Edit", "tracklists", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -36,8 +37,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.music_src, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.music_src, new { htmlAttributes = new { @class = "form-control" } })
+                <input id="image" type="image" src="~/Uploads/@Html.DisplayFor(model => model.music_src)" width="100" style="margin-bottom:10px;" />
+                <input type="hidden" name="oldfile" value="@Html.DisplayFor(model => model.music_src)" />
+                @Html.EditorFor(model => model.music_src, new { htmlAttributes = new { @class = "form-border", @type = "file" } })
                 @Html.ValidationMessageFor(model => model.music_src, "", new { @class = "text-danger" })
+                @if (ViewBag.Message != null)
+                {
+                    <p class="text-danger">@ViewBag.Message</p>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.album_or_radishow_id, "album_or_radishow_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("album_or_radishow_id", null, htmlAttributes: new { @class = "" })
+                @Html.ValidationMessageFor(model => model.album_or_radishow_id, "", new { @class = "text-danger" })
             </div>
         </div>
 

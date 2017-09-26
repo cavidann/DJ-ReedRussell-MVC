@@ -21,6 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.music_src)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.album_or_radioshow.album_name)
+        </th>
         <th></th>
     </tr>
 
@@ -34,6 +37,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.music_src)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.album_or_radioshow.album_name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
